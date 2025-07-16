@@ -4,14 +4,19 @@ import { use, useEffect, useState } from "react";
 function ProductList() {
     const [count, setCount] = useState(0);
     const [products, setProducts] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
     console.log("Reder ProductList");
 
     useEffect(() => {
         fetch("https://fakestoreapi.com/products")
-        .then((response) => response.json())
-        .then((data) => setProducts(data));
+            .then((response) => response.json())
+            .then((data) => {
+                setProducts(data)
+                setIsLoading()
+            })
+            .catch((error) => console.error("Error fetching products:", error));
     }, []);
-    
+
     return (
         <div className="row justify-content-center">
             <button
@@ -20,19 +25,28 @@ function ProductList() {
                 Increment
             </button>
             <>{count}</>
+
             <button className="btn btn-secondary m-4" onClick={() => { setCount(--count) }}>Decrement</button>
             {
-                products.map((product) => {
-                    return (
-                        <ProductCard
-                            title={product.title}
-                            price={product.price}
-                            description={product.description}
-                            image={product.image}
-                        />
-                    )
-                })
+
             }
+            {
+                isLoading ? <h1>Loading...</h1> : <> {
+                    products.map((product) => {
+                        return (
+                            <ProductCard
+                                title={product.title}
+                                price={product.price}
+                                description={product.description}
+                                image={product.image}
+                            />
+                        )
+                    })
+
+                }
+                </>
+            }
+
         </div>
     )
 }

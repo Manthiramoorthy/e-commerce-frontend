@@ -6,7 +6,7 @@ function ProductCard({ title, price, description, image }) {
                 <img src={image} style={{ "width": "200px", height: "200px" }} className="card-img-top" />
                 <div className="card-body">
                     <h5 className="card-title">{title}</h5>
-                    <p className="card-text">{description}</p>
+                    <p className="card-text text-truncate">{description}</p>
                     <p className="card-text">${price}</p>
                     <a href="#" className="btn btn-primary">Go somewhere</a>
                 </div>
@@ -14,6 +14,7 @@ function ProductCard({ title, price, description, image }) {
         </div>
     )
 }
+
 export default ProductCard;
 // npx create-react-app e-commerce
 // cd e-commerce
