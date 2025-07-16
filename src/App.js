@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <h1>Welcome to React APP</h1>
-      <ProductList />
+      <a className='App-link' href='/product-list'>ProductList</a>
     </div>
   );
 }
