@@ -8,9 +8,10 @@ function ProductList() {
     console.log("Reder ProductList");
 
     useEffect(() => {
-        fetch("https://fakestoreapi.com/products")
+        fetch("http://localhost:8080/products")
             .then((response) => response.json())
             .then((data) => {
+                console.log(data)
                 setProducts(data)
                 setIsLoading()
             })

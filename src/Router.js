@@ -2,6 +2,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import App from './App';
 import ProductList from './ProductList';
 import "bootstrap/dist/css/bootstrap.min.css";
+import AddProductForm from './AddProductForm';
+import LoginForm from './Login';
+import RegistrationForm from './Register';
 
 function Router() {
     return (
@@ -20,7 +23,10 @@ function Router() {
             <BrowserRouter>
                 <Routes>
                     <Route path='/' element={<App />} />
+                    <Route path='/login' element={<LoginForm />} />
+                    <Route path='/register' element={<RegistrationForm />} />
                     <Route path='/product-list' element={<ProductList />} />
+                    <Route path='/add-product' element={<AddProductForm />} />
                 </Routes>
             </BrowserRouter>
         </>
